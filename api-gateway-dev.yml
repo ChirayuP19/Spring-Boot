@@ -1,11 +1,13 @@
 server:
   port: 8080
 spring:
+  application:
+    name: api-gateway
   security:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:9000/auth-service
+          issuer-uri: http://localhost:9000/outh2/jwks
   data:
     redis:
       host: localhost
@@ -31,10 +33,10 @@ spring:
            - name: CircuitBreaker
              args:
                name: transactionCB
-# eureka:
-#   client:
-#     service-url:
-#         defaultZone: http://localhost:8761/eureka
+eureka:
+  client:
+    service-url:
+        defaultZone: http://localhost:8761/eureka
         
 management:
   endpoints:
